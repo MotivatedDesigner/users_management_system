@@ -1,7 +1,6 @@
-import { Router } from 'express'
+const userRouter = require('express').Router()
+const { userController } = require('../controllers')
 
-export const usersRouter = Router()
+userRouter.get('/', (req, res, next) => userController.getUsers(res))
 
-usersRouter.get('/', function(req, res, next) {
-  res.send('respond with a resource')
-})
+module.exports = userRouter

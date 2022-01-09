@@ -1,9 +1,9 @@
-import logger from 'morgan'
-import createError from 'http-errors'
-import express from 'express'
-import cookieParser from 'cookie-parser'
+const logger = require('morgan')
+const createError = require('http-errors')
+const express = require('express')
+const cookieParser = require('cookie-parser')
 
-import { usersRouter } from './routes/index.js'
+const {userRouter} = require('./routes')
 
 const app = express()
 
@@ -16,10 +16,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static('public'))
 
-app.get('/', (req, res) => res.render('index', { title: 'Express' }) )
-app.use('/users', usersRouter)
+app.get('/', (req, res) => res.render('index') )
+app.use('/users', userRouter)
 
-app.use( (req, res, next) => next(createError(404)) )
+app.use( (req, res, next) => next(createError.NotFound) )
 
 app.use( (err, req, res, next) => {
   res.locals.message = err.message

@@ -18,3 +18,12 @@
     </tbody>
 </table>
 
+<div>
+    {{#each users}}
+        {{!-- <b>key1:</b> {{this.Key1}} <br/>
+        {{#each this.Key2}}
+          <b>InnerKey1:</b> {{this.innerKey1}} <br/>
+        {{/each}} --}}
+        <h1>{{this.firstName}}</h1>
+    {{/each}}
+</div>

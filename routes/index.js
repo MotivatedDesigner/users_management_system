@@ -1,5 +1,5 @@
-import { usersRouter } from "./users.js"
+const userRouter = require('./users')
 
-export {
-  usersRouter
+module.exports = {
+  userRouter
 }

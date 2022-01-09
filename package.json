@@ -2,7 +2,6 @@
   "name": "users-management-system",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
@@ -14,7 +13,8 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",
