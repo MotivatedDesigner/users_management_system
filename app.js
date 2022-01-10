@@ -30,6 +30,6 @@ app.use( (err, req, res, next) => {
   res.render('error')
 })
 
-app.listen(3000, () => console.log('Server is Up'))
+app.listen(3333, () => console.log('Server is Up'))
 
 
