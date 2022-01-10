@@ -716,6 +716,11 @@ hbs@~4.0.4:
     handlebars "4.3.5"
     walk "2.3.14"
 
+hoaxer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/hoaxer/-/hoaxer-1.0.0.tgz#1d5714c3a745b2e2c27921060ff1d226b8ae714b"
+  integrity sha512-aqRnO9Fecl+9QryfsmxBaf/alaH/4ZEe8sGYImUJRG4ExO0qUUPb+OJoXpQ48364LLrSpjCFCLDg3WrLLuH0hA==
+
 http-cache-semantics@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"

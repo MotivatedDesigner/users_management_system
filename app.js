@@ -3,7 +3,7 @@ const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 
-const {userRouter} = require('./routes')
+const {userRouter, departementRouter} = require('./routes')
 
 const app = express()
 
@@ -18,6 +18,7 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => res.render('index') )
 app.use('/users', userRouter)
+app.use('/departements', departementRouter)
 
 app.use( (req, res, next) => next(createError.NotFound) )
 
