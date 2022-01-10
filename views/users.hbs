@@ -1,29 +1,28 @@
-<table class="styled-table">
+<div>
+  <table class="styled-table">
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Points</th>
-        </tr>
+      <tr>
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Departement</th>
+        <th>Actions</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Dom</td>
-            <td>6000</td>
+      {{#each users}}
+        <tr id="{{this.id}}">
+          <td>{{this.id}}</td>
+          <td>{{this.firstName}}</td>
+          <td>{{this.lastName}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.password}}</td>
+          <td>{{this.Departement.name}}</td>
+          {{!-- <td>{{this.Departement}}</td> --}}
         </tr>
-        <tr class="active-row">
-            <td>Melissa</td>
-            <td>5150</td>
-        </tr>
-        <!-- and so on... -->
+      {{/each}}
     </tbody>
-</table>
-
-<div>
-    {{#each users}}
-        {{!-- <b>key1:</b> {{this.Key1}} <br/>
-        {{#each this.Key2}}
-          <b>InnerKey1:</b> {{this.innerKey1}} <br/>
-        {{/each}} --}}
-        <h1>{{this.firstName}}</h1>
-    {{/each}}
+  </table>
 </div>
