@@ -10,7 +10,7 @@ body {
   display: flex;
   height: 100vh;
 }
-
+/* Sidebar */
 aside {
   width: 16%;
   display: flex;
@@ -24,9 +24,10 @@ aside {
 }
 .menu-item h3{
   padding: 16px 20px 16px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   cursor: pointer;
-  margin-left: 4px;
+  margin-left: 6px;
+  border-left: 4px solid rgba(2, 146, 117, 0.76);
 }
 .menu-item h3:hover{
   background: rgba(2, 146, 117, 0.76);
@@ -40,7 +41,7 @@ main{
   width: 84%;
   text-align: center;
 }
-
+/* Table */
 .styled-table {
   border-collapse: collapse;
   margin: 25px auto;
@@ -51,7 +52,6 @@ main{
 /* Styling the header  */
 .styled-table thead tr {
   background-color: #029275;
-  color: #ffffff;
   text-align: left;
 }
 /* table cells  */
@@ -69,12 +69,7 @@ main{
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #017e65;
 }
-/* Active row */
-.styled-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
-}
-
+/* Table actions */
 .styled-table .actions {
   display: flex;
   align-items: center;
@@ -91,4 +86,26 @@ main{
 .styled-table .actions svg:last-of-type:hover {
   color: rgb(197, 16, 3);
 }
-
+/* Pagination */
+.pagination {
+  display: inline-block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.pagination a {
+  background-color: #2e2e2e;
+  color: rgba(235, 235, 235, 0.829);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.pagination a.active {
+  background-color: #029275;
+  border-radius: 4px;
+}
+.pagination a:hover:not(.active) {
+  background-color: rgba(235, 235, 235, 0.829);
+  color: #2e2e2e;
+  border-radius: 4px;
+}
