@@ -8,7 +8,7 @@ const {userRouter, departementRouter} = require('./routes')
 const app = express()
 
 app.set('views', 'views')
-app.set('view engine', 'hbs')
+app.set('view engine', 'pug')
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static('public'))
 
-app.get('/', (req, res) => res.render('index') )
+app.get('/', (req, res) => res.render('index',{lala: 12}) )
 app.use('/users', userRouter)
 app.use('/departements', departementRouter)
 

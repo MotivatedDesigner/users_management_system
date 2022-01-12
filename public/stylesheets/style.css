@@ -7,17 +7,27 @@ body {
   font: 14px "Metropolis","Lucida Grande", Helvetica, Arial, sans-serif;
   color: rgba(235, 235, 235, 0.829);
   background: rgb(53, 53, 53);
+}
+/* Footer */
+footer{
+  text-align: center;
+  margin-top: -36px;
+  margin-left: 18%;
+}
+/* Container */
+.container{
   display: flex;
   height: 100vh;
 }
 /* Sidebar */
 aside {
-  width: 16%;
+  width: 18%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 24px;
+  padding-top: 24px;
   gap: 24px;
+  background-color: #2e2e2e;
 }
 .menu{
   align-self: stretch;
@@ -35,10 +45,11 @@ aside {
 .menu-item h3.active{
   background: linear-gradient(90deg, rgba(2, 146, 117, 0.76) 0%, rgba(0,198,158,0) 100%);
 }
+/* main */
 main{
-  padding: 50px;
+  padding: 24px;
   margin: 0 auto;
-  width: 84%;
+  width: 86%;
   text-align: center;
 }
 /* Table */
@@ -48,6 +59,7 @@ main{
   font-size: 1.1em;
   width: 600px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-style: hidden; 
 }
 /* Styling the header  */
 .styled-table thead tr {
