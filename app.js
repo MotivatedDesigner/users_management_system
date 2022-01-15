@@ -2,11 +2,14 @@ const logger = require('morgan')
 const createError = require('http-errors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
+const dotenv = require('dotenv')
 
 const {userRouter, departementRouter} = require('./routes')
 
+dotenv.config()
 const app = express()
 
+app.use(express.static('public'))
 app.set('views', 'views')
 app.set('view engine', 'pug')
 
@@ -14,9 +17,9 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static('public'))
 
-app.get('/', (req, res) => res.render('index',{lala: 12}) )
+app.locals.baseUrl = `${process.env.HOST}:${process.env.PORT}`
+
 app.use('/users', userRouter)
 app.use('/departements', departementRouter)
 
@@ -30,6 +33,6 @@ app.use( (err, req, res, next) => {
   res.render('error')
 })
 
-app.listen(3333, () => console.log('Server is Up'))
+app.listen(process.env.PORT, () => console.log('Server is Up'))
 
 
