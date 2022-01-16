@@ -15,7 +15,7 @@ block content
           th Actions
       tbody 
         each user in users.rows
-          tr(id="#{user.id}")
+          tr(id=`${user.id}`)
             td #{user.id}
             td #{user.firstName}
             td #{user.lastName}

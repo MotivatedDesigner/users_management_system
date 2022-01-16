@@ -17,8 +17,8 @@ async function getUsers(res) {
 } 
 
 async function editUser(req, res) {
-  const user = await User.findOne({
-    where: { id: req.params.id }
-  })
-  res.render('users/edit', {user})
+  const user = await User.findOne({ where: { id: req.params.id } })
+  const departements = user ? await Departement.findAll() : null
+  
+  res.render('users/edit', {user, departements})
 } 

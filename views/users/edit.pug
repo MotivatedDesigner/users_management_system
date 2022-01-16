@@ -2,4 +2,43 @@ extends ../layouts/dashboard
 block content
   main
     h1 Users/edit
-    
+    if !user
+      h2 There is no user with this id
+    else 
+      form(method="post") 
+        input(type="hidden", name="csrf")
+        label(for="firsname") FirsName
+        input#firsname( name="firsname",
+          type="text", 
+          placeholder="FirstName", 
+          value=`${user.firstName}`
+        )
+        br
+        label(for="lastname") LastName
+        input#lastname( name="lastname", 
+          type="text", 
+          placeholder="LastName", 
+          value=`${user.lastName}`
+        )
+        br
+        label(for="email") Email
+        input#email( name="email",
+          type="email", 
+          placeholder="Email", 
+          value=`${user.email}`
+        )
+        br
+        label(for="password") Password
+        input#password( name="password",
+          type="password", 
+          placeholder="Password", 
+          value=`${user.password}`
+        )
+        br
+        label(for="departement") Departement
+        select#departement(name="departement")
+          for departement in departements 
+            option(value=`${departement.id}`) #{departement.name}
+        .form-actions 
+          input(type="button", value="Cancel", onclick="history.back()")
+          input(type="submit", value="Save")
