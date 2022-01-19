@@ -1,1 +1,6 @@
-h1 #{error}
+extends layouts/index
+block content
+  div(style="text-align: center;")
+    h1(style="margin-top: 40px")= message
+    h2(style="margin-top: 10px")= error.status
+  h3(style="margin: 10px ")= error.stack

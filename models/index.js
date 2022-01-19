@@ -6,7 +6,7 @@ const basename = path.basename(__filename)
 const env = process.env.NODE_ENV || 'development'
 const config = require(__dirname + '/../config/config.json')[env]
 const sequelize = new Sequelize(config.database, config.username, config.password, config)
-const db = {}
+const models = {}
 
 fs
   .readdirSync(__dirname)
@@ -15,17 +15,17 @@ fs
   })
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
-    db[model.name] = model
+    models[model.name] = model
   });
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db)
+Object.keys(models).forEach(modelName => {
+  if (models[modelName].associate) {
+    models[modelName].associate(models)
   }
 })
 
-// testDbConnection()
-module.exports = db
+// testdbConnection()
+module.exports = models
 
 async function testDbConnection() {
   try {

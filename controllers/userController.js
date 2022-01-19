@@ -2,14 +2,15 @@ const { User, Departement } = require('../models')
 
 module.exports = { getUsers, editUser, updateUser, deleteUser }
 
-async function getUsers(res) {
-  
+async function getUsers(req, res) {
+  const offset = req.params.page ?? 0
+
   const users = await User.findAndCountAll({
     attributes: {
       exclude: ['DepartementId']
     },
     include: {model: Departement, attributes : ['name']},
-    offset: 0,
+    offset: offset,
     limit: 10
   })
   
@@ -26,7 +27,7 @@ async function editUser(req, res) {
 async function updateUser(req, res) {
   const {id, ...others} = req.body
   await User.update(others, {
-    where: { id: id }
+    where: { id }
   })
   res.redirect('back')
 } 

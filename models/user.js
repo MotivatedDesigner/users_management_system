@@ -1,8 +1,8 @@
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {
-      this.belongsTo(models.Departement,{
+    static associate({ Departement }) {
+      this.belongsTo(Departement,{
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       })

@@ -1,8 +1,11 @@
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Departement extends Model {
-    static associate(models) {
-      this.hasMany(models.User)
+    static associate({ User }) {
+      this.hasMany(User, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      })
     }
   }
   Departement.init({
