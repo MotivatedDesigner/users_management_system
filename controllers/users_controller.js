@@ -1,6 +1,6 @@
 const { User, Departement } = require('../models')
 
-module.exports = { getUsers, editUser, updateUser, deleteUser }
+module.exports = { getUsers, editUser, updateUser, deleteUser, createUser, addUser }
 
 async function getUsers(req, res) {
   const offset = req.params.page ?? 0
