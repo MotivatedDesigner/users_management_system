@@ -1,6 +1,6 @@
 const { User, Departement } = require('../models')
 
-module.exports = { getUsers, editUser }
+module.exports = { getUsers, editUser, updateUser }
 
 async function getUsers(res) {
   
@@ -21,4 +21,17 @@ async function editUser(req, res) {
   const departements = user ? await Departement.findAll() : null
   
   res.render('users/edit', {user, departements})
+} 
+
+async function updateUser(req, res) {
+  // console.log(req.body);
+  const {id, ...others} = req.body
+  console.log(others);
+  await User.update(others, {
+    where: { id: id }
+  })
+  res.redirect('back')
+  // const departements = user ? await Departement.findAll() : null
+
+  // res.render('users/edit', {user, departements})
 } 

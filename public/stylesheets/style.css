@@ -85,8 +85,11 @@ main{
   justify-content: center;
   gap: 12px;
 }
-.styled-table .actions a {
+.styled-table .actions a, .styled-table .actions form button {
   color: inherit;
+  outline: none;
+  border: none;
+  background: transparent;
 }
 .styled-table .actions svg {
   height: 18px;
@@ -95,7 +98,7 @@ main{
 .styled-table .actions a:first-of-type svg:hover {
   color: rgb(3, 197, 19);
 }
-.styled-table .actions a:last-of-type svg:hover {
+.styled-table .actions form button:last-of-type svg:hover {
   color: rgb(197, 16, 3);
 }
 /* Pagination */
@@ -122,17 +125,17 @@ main{
   border-radius: 4px;
 }
 /* users form */
-form{
+form.edit-form{
   margin: 72px auto;
   width: 464px;
   text-align: left;
   font-size: 1.05rem;
 }
-form label{
+form.edit-form label{
   display: inline-block;
   width: 30%;
 }
-form input, form select{
+form.edit-form input, form.edit-form select{
   border: none;
   outline: none;
   width: 70%;
@@ -144,18 +147,18 @@ form input, form select{
   color: rgba(235, 235, 235, 0.829);
   border-radius: 8px;
 }
-form input:focus, form select:focus{
+form.edit-form input:focus, form.edit-form select:focus{
   outline: 2px solid rgba(2, 146, 117, 0.76);
   outline-offset: -2px;
 }
-form .form-actions{
+form.edit-form .form-actions{
   margin-top: 24px;
   display: flex;
   gap: 24px;
 } 
-form .form-actions input{
+form.edit-form .form-actions input{
   cursor: pointer;
 } 
-form .form-actions input[type="submit"]{
+form.edit-form .form-actions input[type="submit"]{
   background:  rgba(2, 146, 117, 0.76);
 } 

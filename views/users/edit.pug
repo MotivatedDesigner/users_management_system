@@ -5,17 +5,18 @@ block content
     if !user
       h2 There is no user with this id
     else 
-      form(method="post") 
+      form.edit-form(method="post") 
         input(type="hidden", name="csrf")
-        label(for="firsname") FirsName
-        input#firsname( name="firsname",
+        input(type="hidden", name="id", value=`${user.id}`)
+        label(for="firstname") FirstName
+        input#firstname( name="firstName",
           type="text", 
           placeholder="FirstName", 
           value=`${user.firstName}`
         )
         br
         label(for="lastname") LastName
-        input#lastname( name="lastname", 
+        input#lastname( name="lastName", 
           type="text", 
           placeholder="LastName", 
           value=`${user.lastName}`
@@ -35,10 +36,11 @@ block content
           value=`${user.password}`
         )
         br
-        label(for="departement") Departement
-        select#departement(name="departement")
+        label(for="DepartementId") Departement
+        select#DepartementId(name="DepartementId")
           for departement in departements 
-            option(value=`${departement.id}`) #{departement.name}
+            option(
+              value=`${departement.id}`, selected=(user.DepartementId == departement.id)) #{departement.name}
         .form-actions 
           input(type="button", value="Cancel", onclick="history.back()")
           input(type="submit", value="Save")
