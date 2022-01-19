@@ -1,7 +1,5 @@
-const userRouter = require('./users')
-const departementRouter = require('./departements')
+const usersRouter = require('./users_router')
 
 module.exports = {
-  userRouter,
-  departementRouter
+  usersRouter
 }

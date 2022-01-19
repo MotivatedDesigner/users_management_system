@@ -1,6 +1,4 @@
-const userController = require('./users_controller')
-const departementController = require('./departementController')
+const usersController = require('./users_controller')
 module.exports = {
-  userController,
-  departementController
+  usersController,
 }

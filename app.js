@@ -3,7 +3,7 @@ const createError = require('http-errors')
 const express = require('express')
 const dotenv = require('dotenv')
 
-const {userRouter, departementRouter} = require('./routes')
+const { usersRouter } = require('./routes')
 
 dotenv.config()
 const app = express()
@@ -18,8 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.locals.baseUrl = `${process.env.HOST}:${process.env.PORT}`
 
-app.use('/users', userRouter)
-app.use('/departements', departementRouter)
+app.use('/users', usersRouter)
 
 app.use( (req, res, next) => next(createError(404)) )
 
