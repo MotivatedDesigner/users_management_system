@@ -18,24 +18,22 @@ async function getUsers(req, res) {
 } 
 
 async function editUser(req, res) {
-  const user = await User.findOne({ where: { id: req.params.id } })
+  const id = req.params.id
+  const user = await User.findOne({ where: { id } })
   const departements = user ? await Departement.findAll() : null
   
   res.render('users/edit', {user, departements})
 } 
 
 async function updateUser(req, res) {
-  const {id, ...others} = req.body
-  await User.update(others, {
-    where: { id }
-  })
+  const id = req.params.id
+  const data = req.body
+  await User.update(data, {where: { id }})
   res.redirect('back')
 } 
 
 async function deleteUser(req, res) {
   const id = req.params.id
-  await User.destroy({
-    where: { id }
-  })
+  await User.destroy({ where: {id} })
   res.redirect('back')
 } 

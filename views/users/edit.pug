@@ -5,9 +5,8 @@ block content
     if !user
       h2 There is no user with this id
     else 
-      form.edit-form(method="post") 
+      form(method="post") 
         input(type="hidden", name="csrf")
-        input(type="hidden", name="id", value=`${user.id}`)
         label(for="firstname") FirstName
         input#firstname( name="firstName",
           type="text", 
