@@ -23,13 +23,22 @@ async function editUser(req, res) {
   const departements = user ? await Departement.findAll() : null
   
   res.render('users/edit', {user, departements})
-} 
-
+}
 async function updateUser(req, res) {
   const id = req.params.id
   const data = req.body
   await User.update(data, {where: { id }})
-  res.redirect('back')
+  res.redirect('/users')
+} 
+
+async function addUser(_, res) {
+  const departements = await Departement.findAll()
+  res.render('users/add', {departements})
+} 
+async function createUser(req, res) {
+  const data = req.body
+  await User.create(data)
+  res.redirect('/users')
 } 
 
 async function deleteUser(req, res) {
