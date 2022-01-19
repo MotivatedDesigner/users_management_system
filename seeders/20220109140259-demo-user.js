@@ -1,5 +1,5 @@
 const faker = require('hoaxer')
-const users = [...Array(100)].map((user) => (
+const users = [...Array(55)].map((user) => (
   {
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),

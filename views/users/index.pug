@@ -34,10 +34,10 @@ block content
     
     .pagination
       a &laquo;
-      a.active 1
-      a 2
-      a 3
-      a 4
-      a 5
-      a 6
+      - var counter = 0
+      while counter < (users.count / 10)
+        a(
+          href=`/users?page=${counter * 10}`, 
+          class=( (counter * 10) == offset ? 'active' : '' )
+        )= ++counter
       a &raquo;
