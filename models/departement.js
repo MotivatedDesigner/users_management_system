@@ -9,8 +9,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Departement.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
+    name: {
+      type: DataTypes.STRING,
+      validate: { len: [2,20], notEmpty: true }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      validate: { max: [300] }
+    },
   }, {
     sequelize,
     modelName: 'Departement',
