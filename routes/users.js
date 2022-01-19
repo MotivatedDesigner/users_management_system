@@ -5,6 +5,6 @@ userRouter.get('/', (req, res, next) => userController.getUsers(res))
 
 userRouter.get('/edit/:id', (req, res) => userController.editUser(req, res))
 
-userRouter.post('/edit/:id', (req, res) => userController.updateUser(req, res))
+userRouter.post('/delete/:id', (req, res) => userController.deleteUser(req, res))
 
 module.exports = userRouter
