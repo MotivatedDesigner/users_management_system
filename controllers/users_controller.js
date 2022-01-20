@@ -1,3 +1,4 @@
+const createError = require('http-errors')
 const { User, Departement } = require('../models')
 
 module.exports = { getUsers, editUser, updateUser, deleteUser, createUser, addUser }
@@ -34,7 +35,8 @@ async function addUser(_, res) {
   const departements = await Departement.findAll()
   res.render('users/add', {departements})
 } 
-async function createUser(req, res) {
+async function createUser(req, res, next) {
+  console.log(next.name);
   const data = req.body
   await User.create(data)
   res.redirect('/users')

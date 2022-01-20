@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   Departement.init({
     name: {
       type: DataTypes.STRING,
-      validate: { len: [2,20], notEmpty: true }
+      allowNull: false,
+      validate: { len: [2,20], notEmpty: true, notNull: true }
     },
     description: {
       type: DataTypes.TEXT,
